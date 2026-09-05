@@ -1,0 +1,31 @@
+{
+  "name": "iron-man-suit",
+  "version": "1.0.0",
+  "description": "IRON MAN SUIT — Futuristic JARVIS AI Voice Assistant & Real-Time Cyber HUD System",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install",
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"cyan,magenta\" \"npm run backend\" \"npm run frontend\"",
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix backend run build && npm --prefix frontend run build",
+    "start": "npm --prefix backend run start"
+  },
+  "keywords": [
+    "ironman",
+    "jarvis",
+    "hud",
+    "voice-assistant",
+    "react",
+    "typescript",
+    "socketio",
+    "ai",
+    "cyberpunk",
+    "iot-telemetry"
+  ],
+  "author": "Tony Stark / Stark Industries",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
