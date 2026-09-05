@@ -208,20 +208,7 @@ Connect real microcontrollers using the provided firmware sketches:
 
 ---
 
-## 📤 Push to GitHub
 
-To push this codebase to your own GitHub repository:
-
-```bash
-git init
-git add .
-git commit -m "feat: initial Iron Man suit system"
-git branch -M main
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
-```
-
----
 
 ## 📄 License
 
