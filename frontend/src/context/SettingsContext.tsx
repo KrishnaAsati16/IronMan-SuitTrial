@@ -17,6 +17,7 @@ const DEFAULT_SETTINGS: AppSettings = {
   soundEffectsEnabled: true,
   animationsEnabled: true,
   themeIntensity: 'high',
+  colorTheme: 'stealth-black',
   simulationMode: true,
   defaultCity: 'Malibu'
 };
@@ -27,7 +28,15 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [settings, setSettings] = useState<AppSettings>(() => {
     try {
       const saved = localStorage.getItem('ironman_hud_settings');
-      return saved ? { ...DEFAULT_SETTINGS, ...JSON.parse(saved) } : DEFAULT_SETTINGS;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return {
+          ...DEFAULT_SETTINGS,
+          ...parsed,
+          colorTheme: parsed.colorTheme || 'stealth-black'
+        };
+      }
+      return DEFAULT_SETTINGS;
     } catch {
       return DEFAULT_SETTINGS;
     }

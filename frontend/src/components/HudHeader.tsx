@@ -33,7 +33,7 @@ export const HudHeader: React.FC<HudHeaderProps> = ({ onOpenSettings }) => {
   };
 
   return (
-    <header className="relative w-full border-b border-cyan-500/30 bg-[#030914]/90 backdrop-blur-md px-4 py-3 z-30">
+    <header className="relative w-full border-b border-cyan-500/30 bg-black/95 backdrop-blur-md px-4 py-3 z-30">
       {/* Upper accent cyan line */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
 

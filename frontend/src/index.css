@@ -9,15 +9,39 @@
   }
 
   body {
-    background-color: #020712;
-    background-image: 
-      radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
-      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 40px 40px, 40px 40px;
-    background-position: 0 0, -1px -1px, -1px -1px;
+    background-color: #000000;
     color: #00f0ff;
   }
+}
+
+/* Theme: Stealth Black (Pure Pitch Black / OLED Dark) */
+.theme-stealth-black {
+  background-color: #000000 !important;
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 35px 35px, 35px 35px !important;
+}
+
+/* Theme: Cyber Cyan (Deep Stark Navy Blue) */
+.theme-cyber-cyan {
+  background-color: #020712 !important;
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 40px 40px, 40px 40px !important;
+}
+
+/* Theme: Crimson & Gold (Mark III Armor) */
+.theme-crimson-gold {
+  background-color: #050002 !important;
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(239, 68, 68, 0.08) 0%, transparent 60%),
+    linear-gradient(rgba(234, 179, 8, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 179, 8, 0.03) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 40px 40px, 40px 40px !important;
 }
 
 /* Futuristic Scanline Effect */
@@ -38,10 +62,10 @@
 
 /* Glassmorphism cyber HUD panel */
 .hud-panel {
-  background: rgba(4, 14, 28, 0.7);
-  backdrop-filter: blur(12px);
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(14px);
   border: 1px solid rgba(0, 240, 255, 0.25);
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.08), inset 0 0 15px rgba(0, 240, 255, 0.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 240, 255, 0.03);
   position: relative;
 }
 
@@ -86,7 +110,7 @@
   height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(3, 10, 22, 0.8);
+  background: rgba(0, 0, 0, 0.9);
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 240, 255, 0.4);

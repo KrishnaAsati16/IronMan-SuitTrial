@@ -18,7 +18,7 @@ export const VoiceControl: React.FC = () => {
   };
 
   return (
-    <div className="relative rounded-md bg-[#040e1c]/80 border border-cyan-500/30 p-3 backdrop-blur-md">
+    <div className="relative rounded-md bg-black/90 border border-cyan-500/30 p-3 backdrop-blur-md">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
         {/* Left: Interactive Mic & Status */}
         <div className="flex items-center gap-3 w-full sm:w-auto">

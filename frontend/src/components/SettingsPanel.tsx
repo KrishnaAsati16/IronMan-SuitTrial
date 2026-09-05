@@ -30,8 +30,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose })
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
-      <div className="relative w-full max-w-2xl rounded-lg bg-[#040e1c] border border-cyan-400/50 shadow-[0_0_40px_rgba(0,240,255,0.2)] p-6 font-mono text-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4 animate-fadeIn">
+      <div className="relative w-full max-w-2xl rounded-lg bg-[#050505] border border-cyan-400/50 shadow-[0_0_50px_rgba(0,0,0,0.9)] p-6 font-mono text-xs">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-cyan-500/30 pb-3 mb-4">
           <div className="flex items-center gap-2">
@@ -168,6 +168,33 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose })
                   className="rounded text-cyan-500 accent-cyan-400"
                 />
               </label>
+            </div>
+
+            <div>
+              <label className="block text-cyan-400/80 mb-1 text-[11px] uppercase">
+                Color Palette & Theme
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { id: 'stealth-black', name: 'Stealth Black', desc: 'Pure Pitch Black' },
+                  { id: 'cyber-cyan', name: 'Cyber Cyan', desc: 'Stark Navy' },
+                  { id: 'crimson-gold', name: 'Mark III', desc: 'Crimson & Gold' }
+                ].map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => updateSettings({ colorTheme: t.id as any })}
+                    className={`py-2 px-2.5 rounded border text-center transition-all ${
+                      settings.colorTheme === t.id
+                        ? 'bg-cyan-950 border-cyan-400 text-white shadow-[0_0_12px_rgba(0,240,255,0.4)]'
+                        : 'bg-black/60 border-cyan-500/20 text-cyan-400/70 hover:border-cyan-500/40'
+                    }`}
+                  >
+                    <span className="block font-bold text-xs uppercase">{t.name}</span>
+                    <span className="block text-[9px] opacity-75">{t.desc}</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div>

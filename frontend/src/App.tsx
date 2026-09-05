@@ -15,7 +15,7 @@ import { useSettings } from './context/SettingsContext';
 import { NotificationItem } from './types/hud';
 
 export const App: React.FC = () => {
-  const { hudMode } = useSettings();
+  const { hudMode, settings } = useSettings();
   const [hasBooted, setHasBooted] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [notifications, setNotifications] = useState<NotificationItem[]>([
@@ -43,7 +43,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#020712] text-cyan-400 flex flex-col relative selection:bg-cyan-500 selection:text-black">
+    <div className={`min-h-screen theme-${settings.colorTheme} text-cyan-400 flex flex-col relative selection:bg-cyan-500 selection:text-black`}>
       {/* Top HUD Header */}
       <HudHeader onOpenSettings={() => setIsSettingsOpen(true)} />
 
@@ -58,7 +58,7 @@ export const App: React.FC = () => {
 
           {/* Center: Arc Reactor */}
           <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center">
-            <div className="w-full max-w-md rounded-md bg-[#040e1c]/80 border border-cyan-500/30 p-2 backdrop-blur-md">
+            <div className="w-full max-w-md rounded-md bg-black/85 border border-cyan-500/30 p-2 backdrop-blur-md">
               <ArcReactor />
             </div>
           </div>
@@ -102,7 +102,7 @@ export const App: React.FC = () => {
       />
 
       {/* Subtle Footer Telemetry */}
-      <footer className="border-t border-cyan-500/20 py-2.5 px-4 text-center font-mono text-[10px] text-cyan-500/60 bg-[#020712]/90">
+      <footer className="border-t border-cyan-500/20 py-2.5 px-4 text-center font-mono text-[10px] text-cyan-500/60 bg-black/95">
         STARK INDUSTRIES // MARK LXXXV AUTONOMOUS COMBAT & AVIONICS FIRMWARE // AIR-GAPPED SAFE WHITELIST ENABLED
       </footer>
     </div>

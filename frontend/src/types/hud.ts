@@ -16,6 +16,7 @@ export interface AppSettings {
   soundEffectsEnabled: boolean;
   animationsEnabled: boolean;
   themeIntensity: 'subtle' | 'high' | 'ultra';
+  colorTheme: 'stealth-black' | 'cyber-cyan' | 'crimson-gold';
   simulationMode: boolean;
   defaultCity: string;
 }

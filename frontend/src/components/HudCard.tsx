@@ -33,7 +33,7 @@ export const HudCard: React.FC<HudCardProps> = ({
 
   return (
     <div
-      className={`relative rounded-md bg-[#040e1c]/80 backdrop-blur-md border p-4 transition-all duration-300 ${borderColors[glowColor]} ${className}`}
+      className={`relative rounded-md bg-[#050505]/90 backdrop-blur-md border p-4 transition-all duration-300 ${borderColors[glowColor]} ${className}`}
     >
       {/* Sci-Fi Decorative Corner Accents */}
       <div className={`absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 ${cornerColors[glowColor]}`} />
