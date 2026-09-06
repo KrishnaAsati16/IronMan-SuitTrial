@@ -185,14 +185,6 @@ TELEMETRY_INTERVAL_MS=1500
 
 ---
 
-## 📡 Hardware & Microcontroller Integration
-
-Connect real microcontrollers using the provided firmware sketches:
-
-- **ESP32 Firmware**: Located at [`hardware/esp32/telemetry.example.cpp`](hardware/esp32/telemetry.example.cpp). Connects via WiFi to the backend Socket.IO endpoint and streams IMU, battery, and helmet reed-switch telemetry.
-- **Arduino Firmware**: Located at [`hardware/arduino/telemetry.example.cpp`](hardware/arduino/telemetry.example.cpp). Emits JSON packets over USB Serial at `115200` baud.
-
----
 
 ## 🗺️ Future Roadmap
 
