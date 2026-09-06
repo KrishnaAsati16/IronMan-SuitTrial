@@ -17,7 +17,6 @@
 - 🪖 **Full-Screen Helmet Mode**: Cinematic tactical helmet visor view featuring parallax gyroscopic motion, synthetic horizon reticle, voice telemetry HUD, and system diagnostics.
 - 🖥️ **Real-Time PC & System Monitoring**: Live streaming CPU usage, RAM utilization, storage status, network interface, hostname, and OS uptime via WebSockets.
 - 🛡️ **Air-Gapped Safe Command Whitelist**: Guaranteed security protection. Strictly forbids arbitrary shell injection (`exec(userInput)`); executes only verified safe commands (`OPEN_WEBSITE`, `GET_TIME`, `GET_WEATHER`, `GET_SYSTEM_STATUS`, `TOGGLE_REACTOR`, `SWITCH_HUD_MODE`, `LAUNCH_APP`).
-- 📡 **Hardware IoT Integration (ESP32 / Arduino)**: Dedicated firmware sketches for ESP32 (WiFi WebSockets) and Arduino (USB Serial) streaming battery, internal suit temperatures, visor hall-effect limit switches, and repulsor charging.
 - 🎵 **Futuristic Procedural Web Audio**: Zero-dependency Web Audio API synthesizer for reactor spin-up hums, diagnostic chimes, bootloader tones, and alert pulses.
 - 🚀 **Zero-Config Demo Mode**: Clone and run immediately! No OpenAI or external API keys required to experience full interactive functionality.
 
