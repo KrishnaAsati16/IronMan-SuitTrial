@@ -205,4 +205,4 @@ TELEMETRY_INTERVAL_MS=1500
 
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
 
-*Crafted with precision at Stark Industries.*
+
