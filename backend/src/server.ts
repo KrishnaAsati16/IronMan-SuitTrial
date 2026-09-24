@@ -32,6 +32,24 @@ app.use((req, res, next) => {
   next();
 });
 
+// Root welcome endpoint
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ONLINE',
+    system: 'IRON MAN SUIT — J.A.R.V.I.S. BACKEND CORE',
+    version: 'Mark LXXXV v3.8.5',
+    endpoints: {
+      health: '/api/health',
+      system: '/api/system',
+      suit: '/api/suit/status',
+      weather: '/api/weather',
+      chat: '/api/jarvis/chat',
+      commands: '/api/commands'
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
 // API Routes
 app.use('/api', apiRouter);
 

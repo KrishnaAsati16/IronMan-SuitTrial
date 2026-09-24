@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { Sidebar, NavTab } from './components/Sidebar';
 import { HudHeader } from './components/HudHeader';
-import { ArcReactor } from './components/ArcReactor';
-import { SystemMonitor } from './components/SystemMonitor';
-import { JarvisPanel } from './components/JarvisPanel';
-import { VoiceControl } from './components/VoiceControl';
-import { TelemetryPanel } from './components/TelemetryPanel';
-import { WeatherPanel } from './components/WeatherPanel';
-import { CommandHistory } from './components/CommandHistory';
+import { SuitCenterStage } from './components/SuitCenterStage';
+import { SystemDiagnosticsPanel } from './components/SystemDiagnosticsPanel';
+import { SuitTelemetryPanel } from './components/SuitTelemetryPanel';
+import { VoiceCommandBar } from './components/VoiceCommandBar';
+import { AtmosphericRadarPanel } from './components/AtmosphericRadarPanel';
+import { JarvisAICorePanel } from './components/JarvisAICorePanel';
+import { CommandLogTerminal } from './components/CommandLogTerminal';
+import { JarvisAvatarCard } from './components/JarvisAvatarCard';
+import { FooterStatusBar } from './components/FooterStatusBar';
 import { SettingsPanel } from './components/SettingsPanel';
 import { HelmetMode } from './components/HelmetMode';
 import { StartupSequence } from './components/StartupSequence';
@@ -17,12 +20,13 @@ import { NotificationItem } from './types/hud';
 export const App: React.FC = () => {
   const { hudMode, settings } = useSettings();
   const [hasBooted, setHasBooted] = useState(false);
+  const [activeTab, setActiveTab] = useState<NavTab>('home');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [notifications, setNotifications] = useState<NotificationItem[]>([
     {
       id: 'notif-1',
-      title: 'ARC REACTOR STABILIZED',
-      message: 'Zero point energy containment field operating at 100% harmonic resonance.',
+      title: 'MARK LXXXV SYSTEM ONLINE',
+      message: 'Nanotech armor matrices calibrated and synchronized with J.A.R.V.I.S. mainframe.',
       type: 'info',
       timestamp: Date.now()
     }
@@ -32,79 +36,94 @@ export const App: React.FC = () => {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
-  // Show authentic bootloader sequence on initial launch
+  // Authentic Stark boot sequence on first launch
   if (!hasBooted) {
     return <StartupSequence onComplete={() => setHasBooted(true)} />;
   }
 
-  // If user engaged tactical helmet mode
+  // Full-screen Tactical Helmet Mode
   if (hudMode === 'helmet') {
     return <HelmetMode />;
   }
 
   return (
-    <div className={`min-h-screen theme-${settings.colorTheme} text-cyan-400 flex flex-col relative selection:bg-cyan-500 selection:text-black`}>
-      {/* Top HUD Header */}
+    <div className={`min-h-screen theme-${settings.colorTheme || 'stealth-black'} bg-[#02050e] text-cyan-400 flex flex-col relative selection:bg-cyan-500 selection:text-black overflow-x-hidden`}>
+      {/* Upper Navigation Header */}
       <HudHeader onOpenSettings={() => setIsSettingsOpen(true)} />
 
-      {/* Main Command Center HUD */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 md:p-6 space-y-4 md:space-y-6">
-        {/* Top Section: System Monitor | Arc Reactor | Suit Telemetry */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-          {/* Left: System Diagnostics */}
-          <div className="lg:col-span-4 order-2 lg:order-1">
-            <SystemMonitor />
-          </div>
+      {/* Main Body Grid with Sidebar & Content */}
+      <div className="flex-1 flex flex-row w-full overflow-hidden">
+        {/* Left Sidebar */}
+        <Sidebar
+          activeTab={activeTab}
+          onTabChange={(tab) => setActiveTab(tab)}
+          onOpenSettings={() => setIsSettingsOpen(true)}
+        />
 
-          {/* Center: Arc Reactor */}
-          <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center">
-            <div className="w-full max-w-md rounded-md bg-black/85 border border-cyan-500/30 p-2 backdrop-blur-md">
-              <ArcReactor />
+        {/* Dashboard Main Workspace */}
+        <main className="flex-1 p-3 xl:p-4 space-y-3 xl:space-y-4 overflow-y-auto max-w-[1720px] mx-auto w-full">
+          {/* Top Row: System Diagnostics | Center Suit Hologram | Suit Telemetry */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-3 xl:gap-4 items-stretch">
+            {/* Left 4 Cols: System Diagnostics */}
+            <div className="lg:col-span-4 flex flex-col">
+              <SystemDiagnosticsPanel />
+            </div>
+
+            {/* Center 4 Cols: Mark LXXXV Suit Center Stage */}
+            <div className="lg:col-span-4 flex flex-col">
+              <SuitCenterStage />
+            </div>
+
+            {/* Right 4 Cols: Suit Telemetry Sensor Network */}
+            <div className="lg:col-span-4 flex flex-col">
+              <SuitTelemetryPanel />
             </div>
           </div>
 
-          {/* Right: Suit Telemetry */}
-          <div className="lg:col-span-4 order-3 lg:order-3">
-            <TelemetryPanel />
-          </div>
-        </div>
-
-        {/* Middle Voice Control Bar */}
-        <div className="w-full">
-          <VoiceControl />
-        </div>
-
-        {/* Bottom Section: Weather & Logs | JARVIS AI Assistant */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-          {/* Left Column: Atmospheric Radar + Command History */}
-          <div className="lg:col-span-5 space-y-4">
-            <WeatherPanel />
-            <CommandHistory />
+          {/* Middle Row: Full-Width J.A.R.V.I.S. Voice Command Matrix Bar */}
+          <div className="w-full">
+            <VoiceCommandBar />
           </div>
 
-          {/* Right Column: J.A.R.V.I.S. AI Chat & Directive Center */}
-          <div className="lg:col-span-7">
-            <JarvisPanel />
-          </div>
-        </div>
-      </main>
+          {/* Bottom Row: Atmospheric Radar | J.A.R.V.I.S. AI Core | Command Log & Avatar */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-3 xl:gap-4 items-stretch">
+            {/* Left 3.5 Cols: Atmospheric Radar */}
+            <div className="lg:col-span-4 flex flex-col">
+              <AtmosphericRadarPanel />
+            </div>
 
-      {/* Floating System Notifications */}
+            {/* Center 4.5 Cols: J.A.R.V.I.S. AI Neural Core */}
+            <div className="lg:col-span-4 flex flex-col">
+              <JarvisAICorePanel />
+            </div>
+
+            {/* Right 4 Cols: Split Command Log & Holographic Avatar Card */}
+            <div className="lg:col-span-4 flex flex-col gap-3 xl:gap-4">
+              <div className="flex-1">
+                <CommandLogTerminal />
+              </div>
+              <div className="h-32">
+                <JarvisAvatarCard />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      {/* Bottom Footer Status Bar */}
+      <FooterStatusBar />
+
+      {/* Floating Notifications */}
       <NotificationSystem
         notifications={notifications}
         onDismiss={dismissNotification}
       />
 
-      {/* Settings Modal */}
+      {/* System Settings Modal */}
       <SettingsPanel
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
       />
-
-      {/* Subtle Footer Telemetry */}
-      <footer className="border-t border-cyan-500/20 py-2.5 px-4 text-center font-mono text-[10px] text-cyan-500/60 bg-black/95">
-        STARK INDUSTRIES // MARK LXXXV AUTONOMOUS COMBAT & AVIONICS FIRMWARE // AIR-GAPPED SAFE WHITELIST ENABLED
-      </footer>
     </div>
   );
 };
