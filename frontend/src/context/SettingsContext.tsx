@@ -17,7 +17,7 @@ const DEFAULT_SETTINGS: AppSettings = {
   soundEffectsEnabled: true,
   animationsEnabled: true,
   themeIntensity: 'high',
-  colorTheme: 'stealth-black',
+  colorTheme: 'stark-white',
   simulationMode: true,
   defaultCity: 'Malibu'
 };
@@ -33,7 +33,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return {
           ...DEFAULT_SETTINGS,
           ...parsed,
-          colorTheme: parsed.colorTheme || 'stealth-black'
+          colorTheme: parsed.colorTheme || 'stark-white'
         };
       }
       return DEFAULT_SETTINGS;

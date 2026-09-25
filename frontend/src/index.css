@@ -9,12 +9,89 @@
   }
 
   body {
-    background-color: #000000;
-    color: #00f0ff;
+    background-color: #f8fafc;
+    color: #0f172a;
   }
 }
 
-/* Theme: Stealth Black (Pure Pitch Black / OLED Dark) */
+/* =========================================================================
+   Theme: Stark Laboratories White (Pristine High-Tech Light HUD)
+   ========================================================================= */
+.theme-stark-white {
+  background-color: #edf2f7 !important;
+  background-image: 
+    radial-gradient(circle at 50% 15%, rgba(0, 160, 255, 0.12) 0%, transparent 60%),
+    linear-gradient(rgba(2, 132, 199, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 132, 199, 0.07) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 35px 35px, 35px 35px !important;
+  color: #0f172a !important;
+}
+
+.theme-stark-white header,
+.theme-stark-white aside,
+.theme-stark-white footer {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(2, 132, 199, 0.22) !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 20px rgba(0, 80, 160, 0.06);
+}
+
+.theme-stark-white .rounded-2xl {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(2, 132, 199, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(0, 80, 180, 0.07), inset 0 0 15px rgba(2, 132, 199, 0.02) !important;
+}
+
+.theme-stark-white .text-white {
+  color: #0f172a !important;
+}
+
+.theme-stark-white .text-cyan-100,
+.theme-stark-white .text-cyan-200 {
+  color: #0369a1 !important;
+}
+
+.theme-stark-white .text-cyan-300,
+.theme-stark-white .text-cyan-400 {
+  color: #0284c7 !important;
+}
+
+.theme-stark-white .text-cyan-400\/70,
+.theme-stark-white .text-cyan-400\/60,
+.theme-stark-white .text-cyan-500\/60 {
+  color: #475569 !important;
+}
+
+.theme-stark-white .bg-black\/40,
+.theme-stark-white .bg-black\/50,
+.theme-stark-white .bg-black\/60,
+.theme-stark-white .bg-cyan-950\/30,
+.theme-stark-white .bg-cyan-950\/40,
+.theme-stark-white .bg-cyan-950\/50,
+.theme-stark-white .bg-cyan-950\/60,
+.theme-stark-white .bg-cyan-950\/80 {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+  border-color: rgba(2, 132, 199, 0.2) !important;
+}
+
+.theme-stark-white input {
+  background-color: #ffffff !important;
+  border-color: rgba(2, 132, 199, 0.35) !important;
+  color: #0f172a !important;
+}
+
+.theme-stark-white input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.theme-stark-white .glow-text-cyan {
+  text-shadow: 0 0 10px rgba(2, 132, 199, 0.35), 0 0 20px rgba(2, 132, 199, 0.2) !important;
+  color: #0284c7 !important;
+}
+
+/* =========================================================================
+   Theme: Stealth Black (Pure Pitch Black / OLED Dark)
+   ========================================================================= */
 .theme-stealth-black {
   background-color: #000000 !important;
   background-image: 
@@ -24,7 +101,9 @@
   background-size: 100% 100%, 35px 35px, 35px 35px !important;
 }
 
-/* Theme: Cyber Cyan (Deep Stark Navy Blue) */
+/* =========================================================================
+   Theme: Cyber Cyan (Deep Stark Navy Blue)
+   ========================================================================= */
 .theme-cyber-cyan {
   background-color: #020712 !important;
   background-image: 
@@ -34,7 +113,9 @@
   background-size: 100% 100%, 40px 40px, 40px 40px !important;
 }
 
-/* Theme: Crimson & Gold (Mark III Armor) */
+/* =========================================================================
+   Theme: Crimson & Gold (Mark III Armor)
+   ========================================================================= */
 .theme-crimson-gold {
   background-color: #050002 !important;
   background-image: 
@@ -110,12 +191,12 @@
   height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.1);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 240, 255, 0.4);
+  background: rgba(2, 132, 199, 0.4);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 240, 255, 0.8);
+  background: rgba(2, 132, 199, 0.8);
 }

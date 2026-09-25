@@ -174,8 +174,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose })
               <label className="block text-cyan-400/80 mb-1 text-[11px] uppercase">
                 Color Palette & Theme
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
+                  { id: 'stark-white', name: 'Stark White', desc: 'Lab White HUD' },
                   { id: 'stealth-black', name: 'Stealth Black', desc: 'Pure Pitch Black' },
                   { id: 'cyber-cyan', name: 'Cyber Cyan', desc: 'Stark Navy' },
                   { id: 'crimson-gold', name: 'Mark III', desc: 'Crimson & Gold' }

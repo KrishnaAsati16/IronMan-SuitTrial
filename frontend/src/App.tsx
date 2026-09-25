@@ -47,7 +47,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className={`min-h-screen theme-${settings.colorTheme || 'stealth-black'} bg-[#02050e] text-cyan-400 flex flex-col relative selection:bg-cyan-500 selection:text-black overflow-x-hidden`}>
+    <div className={`min-h-screen theme-${settings.colorTheme || 'stark-white'} bg-[#02050e] text-cyan-400 flex flex-col relative selection:bg-cyan-500 selection:text-black overflow-x-hidden`}>
       {/* Upper Navigation Header */}
       <HudHeader onOpenSettings={() => setIsSettingsOpen(true)} />
 
